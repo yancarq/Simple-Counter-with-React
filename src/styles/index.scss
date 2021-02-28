@@ -11,3 +11,19 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+$primary-color: #1e1e1e;
+
+body{
+    background-color: $primary-color;
+}
+
+.clockNumber{
+    color: #ffeeff;
+    padding: 15px 25px;
+    font-size: 50px;
+    background-color: #2a2d2e;;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: fantasy;
+}
