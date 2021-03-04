@@ -13,44 +13,17 @@ import * as Icon from "react-bootstrap-icons";
 import "../styles/index.scss";
 
 //import your own components
-import { Home } from "./component/home.js";
+import { SecondsCounter } from "./component/home.js";
 
-const state = {
-	seconds: 0
-};
-let i = 0,
-	b = 0;
+//const [seconds, SetSeconds] = useState(0);
 
-setInterval(function() {
-	this.state = {
-		seconds: i++
-	};
-	b = this.state.seconds;
-
-	console.log(this.state.seconds, b);
-}, 1000);
-
-export function SecondsCounter(props) {
-	return (
-		<div className="container">
-			<div className="row d-flex justify-content-center">
-				<div className="clockNumber">
-					<ClockFill />
-				</div>
-				<div className="clockNumber">0</div>
-				<div className="clockNumber">0</div>
-				<div className="clockNumber">0</div>
-				<div className="clockNumber">0</div>
-				<div className="clockNumber">0</div>
-				<div className="clockNumber">0</div>
-			</div>
-		</div>
-	);
-}
-
-SecondsCounter.propTypes = {
-	seconds: PropTypes.Number
-};
+let counter = 0;
 
 //render your react application
-ReactDOM.render(<SecondsCounter seconds={0} />, document.querySelector("#app"));
+setInterval(function() {
+	counter++;
+	ReactDOM.render(
+		<SecondsCounter count={counter} />,
+		document.querySelector("#app")
+	);
+}, 1000);

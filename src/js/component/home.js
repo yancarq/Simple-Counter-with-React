@@ -1,24 +1,33 @@
 import React from "react";
+import { ClockFill } from "react-bootstrap-icons";
+import PropTypes from "prop-types";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+export function SecondsCounter(props) {
+	let primerDigito = Math.floor(props.count / 1);
+	let segundoDigito = Math.floor(props.count / 10);
+	let tercerDigito = Math.floor(props.count / 100);
+	let cuartoDigito = Math.floor(props.count / 1000);
+	let quintoDigito = Math.floor(props.count / 10000);
+	let sextoDigito = Math.floor(props.count / 100000);
 
-//create your first component
-export function Home() {
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container">
+			<div className="row d-flex justify-content-center">
+				<div className="clockNumber">
+					<ClockFill />
+				</div>
+				<div className="clockNumber">{sextoDigito % 10}</div>
+				<div className="clockNumber">{quintoDigito % 10}</div>
+				<div className="clockNumber">{cuartoDigito % 10}</div>
+				<div className="clockNumber">{tercerDigito % 10}</div>
+				<div className="clockNumber">{segundoDigito % 10}</div>
+				<div className="clockNumber">{primerDigito % 10}</div>
+			</div>
 		</div>
 	);
 }
+
+SecondsCounter.propTypes = {
+	count: PropTypes.string
+};
